@@ -3,7 +3,7 @@ Unit test files and scripts for scRNA mongodb insert
 
 Documents will be inserted in to a database named 'scRNA' and collection named 'UNIT'.
 
-Test file unit_1000.csv contains counts for 1,000 ATAC loci across 4,863 PFPP cells (9.4 MB).
+Test file unit_100.csv contains counts for 100 genes across all cells. 
 
 To run:
 1. Create a python environment with pymongo python package.
