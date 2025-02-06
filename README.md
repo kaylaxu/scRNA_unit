@@ -1,7 +1,7 @@
 # scRNA_unit
-Unit test files and scripts for scRNA mongodb insert
+Unit test files and scripts for multiome scRNA mongodb insert
 
-Documents will be inserted in to a database named 'scRNA' and collection named 'UNIT'.
+Documents will be inserted in to a database named 'foundinpd' and collection named 'MRNA'.
 
 Test file unit_100.csv contains counts for 100 genes across all cells. 
 

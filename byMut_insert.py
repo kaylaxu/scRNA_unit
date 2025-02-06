@@ -102,8 +102,8 @@ with open(sys.argv[1]) as f:
                 
                 for key in totals:
                     insert = {"g0": g,"gene": line[0], "m":key, "t":totals[key],"n":num[key],"v": round(totals[key]/num[key], 4)}
-                    #x = collection.insert_one(insert)
-                    print(insert)
+                    x = collection.insert_one(insert)
+                    #print(insert)
         count += 1
         if count % 10000 == 0:
             print("Time at " + str(count) + "th loci: %s sec" %(round(time.time() - start_time, 2)))
