@@ -31,8 +31,8 @@ g0 = {"chr1": 1,
       "chrM":3148000000}
 
 client = MongoClient("mongodb://localhost:27017")
-db = client["scRNA"]
-collection = db["UNIT"]
+db = client["foundinpd"]
+collection = db["MSCR"]
 
 # cell type dictionary
 cellTypes = {}
@@ -70,7 +70,6 @@ with open('GRCh38_GENCODE29_geneInfo.txt', 'r') as f:
                 if line[11] not in gene_g0:
                     gene_g0[line[11]] = g0[line[0]] + int(line[1])
 
-
 num = {}
 cellID = ""
 mutKeys = {}
@@ -102,9 +101,9 @@ with open(sys.argv[1]) as f:
                         totals[key] = v
                 
                 for key in totals:
-                    insert = {"g": g,"gene": line[0],  "mutation":key, "v": round(totals[key]/num[key], 2)}
-                    x = collection.insert_one(insert)
-                    #print(insert)
+                    insert = {"g0": g,"gene": line[0], "m":key, "t":totals[key],"n":num[key],"v": round(totals[key]/num[key], 4)}
+                    #x = collection.insert_one(insert)
+                    print(insert)
         count += 1
         if count % 10000 == 0:
             print("Time at " + str(count) + "th loci: %s sec" %(round(time.time() - start_time, 2)))
